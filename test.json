@@ -1,0 +1,72 @@
+{
+    "$defs": {
+        "Product": {
+            "properties": {
+                "product_id": {
+                    "title": "Product Id",
+                    "type": "integer"
+                },
+                "name": {
+                    "title": "Name",
+                    "type": "string"
+                },
+                "price": {
+                    "title": "Price",
+                    "type": "number"
+                },
+                "description": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "title": "Description"
+                }
+            },
+            "required": [
+                "product_id",
+                "name",
+                "price"
+            ],
+            "title": "Product",
+            "type": "object"
+        }
+    },
+    "properties": {
+        "total": {
+            "default": 0.0,
+            "title": "Total",
+            "type": "number"
+        },
+        "products": {
+            "items": {
+                "$ref": "#/$defs/Product"
+            },
+            "title": "Products",
+            "type": "array"
+        },
+        "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+        },
+        "order_id": {
+            "title": "Order Id",
+            "type": "integer"
+        },
+        "client_id": {
+            "title": "Client Id",
+            "type": "integer"
+        }
+    },
+    "required": [
+        "order_id",
+        "client_id"
+    ],
+    "title": "Order",
+    "type": "object"
+}
